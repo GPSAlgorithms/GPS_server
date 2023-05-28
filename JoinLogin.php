@@ -28,5 +28,5 @@
     }
 
     // 결과 출력
-    echo json_encode($response);    
+    echo json_encode($response, JSON_PRETTY_PRINT+JSON_UNESCAPED_UNICODE);
 ?>
