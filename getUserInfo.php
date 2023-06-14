@@ -7,14 +7,14 @@
     $statement = mysqli_prepare($con, "SELECT userId, age FROM userinfo WHERE userId = ?");
     mysqli_stmt_bind_param($statement, "s", $userId);
     mysqli_stmt_execute($statement);
-    mysqli_stmt_bind_result($statement, $resultUserId, $resultAge);
+    mysqli_stmt_bind_result($statement, $resultUserId, $resultName);
     
     $result = array(); // 결과를 담을 배열
     
     while (mysqli_stmt_fetch($statement)) {
         $row = array(
             "userId" => $resultUserId,
-            "age" => $resultAge
+            "userName" => $resultName
         );
         $result = $row;
     }
