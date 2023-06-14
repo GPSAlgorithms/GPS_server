@@ -4,7 +4,7 @@
     
     $userId = $_POST["userId"]; // 입력받음
     $userPw = $_POST["userPw"]; // 입력받음
-    $age = $_POST["age"]; // 입력받음
+    $age = $_POST["userName"]; // 입력받음
 
     // null 확인
     if ($userId == "" || $userPw == ""){
@@ -12,8 +12,8 @@
         $result = false;
         $response = array("success" => $result, "error" => "userId or userPw is null");
     } else {
-        $statement = mysqli_prepare($con, "INSERT INTO userinfo(userId, userPw, age) VALUES (?, ?, ?)"); // DB에 값 저장
-        mysqli_stmt_bind_param($statement, "ssi", $userId, $userPw, $age); 
+        $statement = mysqli_prepare($con, "INSERT INTO userinfo(userId, userPw, userName) VALUES (?, ?, ?)"); // DB에 값 저장
+        mysqli_stmt_bind_param($statement, "ssi", $userId, $userPw, userName); 
         
         // 쿼리 실행
         if (mysqli_stmt_execute($statement)) {
